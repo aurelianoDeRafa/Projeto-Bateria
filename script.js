@@ -1,13 +1,11 @@
-/*Vai pegar qualquer tecla que for clicada na tela interia e passa para a função
- playSound */
+/*Vai pegar qualquer tecla que foi clicada na tela inteira e passa para a função playSound */
 document.body.addEventListener('keyup', (event)=>{
     playSound(event.code.toLocaleLowerCase())
 })
 
-/**Vai pegar o botão, e quando o botãp for clicando, 
- * vai disparar um função */
+/**Vai pegar o botão, e quando o botão for clicado,  vai disparar um função */
 document.querySelector('.composer button').addEventListener('click', ()=> {
-    //vai pega o conteudo que esta dentro do input e colocar na variavel 
+    //vai pegar o conteudo que está dentro do input e colocar na variavel 
     let song = document.querySelector('#input').value;
 
     /**Vai verificar se o campo do input da vazio */
@@ -27,7 +25,7 @@ function playSound(sound) {
 
 
     if(audioElement) {
-        /**Esse currentTime = 0 , ele vai reniciar o audio toda
+        /**Esse currentTime = 0 , ele vai reiniciar o audio toda
          * vez que a tleca for apertada. Entao ele nao 
          * vai espera o audio termina de troca para tocar 
          * novamente
@@ -37,10 +35,10 @@ function playSound(sound) {
     }
 
     if(keyElement) {
-        /**Vai adicionar uma classi qu ja esta pronta no css, active */
+        /**Vai adicionar uma classe que ja esta pronta no css, active */
         keyElement.classList.add('active')
 
-        /**Depois de adicionar a class, ele vai remover depois de 300 segundos */
+        /**Depois de adicionar a classe, ele vai remover depois de 300 milissegundo */
         setTimeout(()=>{
            keyElement.classList.remove('active') 
     },300)
@@ -48,7 +46,7 @@ function playSound(sound) {
 }
 
 function playComposition(songArray) {
-    /**vai executa emediatamento no setTimeout */
+    /**vai executar imediatamente no setTimeout */
     let wait = 0;
 
     /**Vai fazer um loop  */
@@ -57,8 +55,7 @@ function playComposition(songArray) {
             playSound(`key${songItem}`)
         }, wait)
 
-        /*A cada letra vai ser adicionada 250 milesegundo.
-        assim nao vai tocar tudo de uma so vez */
+        /*A cada letra vai ser adicionada 250 milissegundo. assim nao vai tocar tudo de uma so vez */
         wait += 250
     }
 }
